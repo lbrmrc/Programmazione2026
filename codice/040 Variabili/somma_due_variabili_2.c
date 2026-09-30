@@ -2,9 +2,8 @@
 
 int main() {
     int a, b;
-    a = 0;
     printf("inserisci due numeri interi: ");
-    scanf("%d %d", &a, &b);
+    scanf("%d%d", &a, &b);
     a = a + b;
     printf("inserisci il terzo numero: ");
     scanf("%d", &b);
