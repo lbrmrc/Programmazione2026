@@ -20,5 +20,5 @@ int main() {
   // calcolo valore finale
   JD = N1 + N2 - N3 + G - 32075;
   // output
-  printf("Il giorno giuliano è %d\n", JD);
+  printf("Il giorno della settimana è %d\n", JD % 7);
 }
