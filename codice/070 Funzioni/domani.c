@@ -6,23 +6,34 @@ int bisestile(int A) // vale 1 se A è bisestile, altrimenti 0
 }
 
 int giorni_del_mese(int M, int A) {
-  int gm;
   if (M == 4 || M == 6 || M == 9 || M == 11)
-    gm = 30;
+    return 30;
   else if (M == 2)
     if (bisestile(A))
-      gm = 29;
+      return 29;
     else
-      gm = 28;
+      return 28;
   else
-    gm = 31;
-  return gm;
+    return 31;
+}
+
+int valida(int G, int M, int A) {
+  if (M < 1 || M > 12)
+    return 0;
+  if (G < 1 || G > giorni_del_mese(M, A))
+    return 0;
+  return 1;
 }
 
 int main(void) {
   int G, M, A;
 
   scanf("%d%d%d", &G, &M, &A);
+
+  if (!valida(G, M, A)) {
+    printf("Data non valida\n");
+    return 1;
+  }
 
   if (G == 31 && M == 12)
     printf("%d %d %d\n", 1, 1, A + 1);
