@@ -5,11 +5,11 @@ int bisestile(int A) // vale 1 se A è bisestile, altrimenti 0
   return A % 400 == 0 || (A % 4 == 0 && A % 100 != 0);
 }
 
-int giorni_del_mese(int M, int A) {
-  if (M == 4 || M == 6 || M == 9 || M == 11)
+int giorni_del_mese(int m, int a) {
+  if (m == 4 || m == 6 || m == 9 || m == 11)
     return 30;
-  else if (M == 2)
-    if (bisestile(A))
+  else if (m == 2)
+    if (bisestile(a))
       return 29;
     else
       return 28;
@@ -17,10 +17,10 @@ int giorni_del_mese(int M, int A) {
     return 31;
 }
 
-int valida(int G, int M, int A) {
-  if (M < 1 || M > 12)
+int valida(int giorno, int mese, int anno) {
+  if (mese < 1 || mese > 12)
     return 0;
-  if (G < 1 || G > giorni_del_mese(M, A))
+  if (giorno < 1 || giorno > giorni_del_mese(mese, anno))
     return 0;
   return 1;
 }
