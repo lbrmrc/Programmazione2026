@@ -1,14 +1,11 @@
 #include <stdio.h>
 
-int main(){
-    int numero;
+int main() {
+  int i;
 
-richiesta:
-    // inizio corpo
-    printf("Inserisci numero\n");
-    scanf("%d", &numero);
-    printf("%d\n", numero * 2);
-    // fine corpo
-    if (numero >= 0) // condizione di permanenza
-        goto richiesta;
+  for (i = 1; i <= 5; i++) {
+    // i itera [1..5] = S1
+    // 2 * i itera map(doppio, S1) = [2, 4, 6, 8, 10];
+    printf("%d\n", 2 * i);
+  }
 }
