@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int bisestile(int A) // vale 1 se A è bisestile, altrimenti 0
+int bisestile(int A) // vale 1 se A e' bisestile, altrimenti 0
 {
   return A % 400 == 0 || (A % 4 == 0 && A % 100 != 0);
 }
