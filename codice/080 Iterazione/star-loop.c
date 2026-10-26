@@ -2,7 +2,7 @@
 
 int main() {
 scrivi:
-  printf("*");
+  printf("*\n");
   goto scrivi;
   printf("\n");
 }
