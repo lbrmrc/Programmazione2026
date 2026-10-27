@@ -29,11 +29,11 @@ int main() {
   printf("Inserisci un numero intero\n");
   scanf("%d", &n);
   q = n;
-  for (i = 1; i <= n; i++) {
-    // i itera [1..n];
+  for (i = 2; q > 1 && i <= n; i++) {
+    // i itera [1..p] dove p è il massimo divisore primo di n;
     if (n % i == 0) {
-      // i itera filter(divide n, [1..n]) = S2,
-      // cioè i è un divisore di n
+      // i itera filter(divide n, [1..p]) = S2,
+      // cioè i è un divisore di n minore o uguale a p
       if (primo(i)) {
         // i itera filter(primo, S2)
         // cioè i è un divisore primo di n
