@@ -9,14 +9,20 @@ float va(float x) {
 
 float media(float p, float q) { return (p + q) / 2.0; }
 
+float radq(float b) {
+  float x;
+  x = 1.0;
+  while (va((x * x - b) / b) > 1e-6) {
+    x = media(x, b / x);
+  }
+  return x;
+}
+
 int main() {
   float a;
-  float x;
+
   printf("Inserisci un numero\n");
   scanf("%f", &a);
-  x = 1.0;
-  while (va((x * x - a) / a) > 1e-6) {
-    x = media(x, a / x);
-  }
-  printf("%f\n", x);
+
+  printf("%f\n", radq(a));
 }
