@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define DIM 5
+#define DIM 100
 
 int main(void) {
   int numeri[DIM];
