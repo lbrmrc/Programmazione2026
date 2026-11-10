@@ -1,5 +1,8 @@
 #include <stdio.h>
 
+#define INIZIALE 1900
+#define FINALE 2100
+
 int bisestile(int anno) {
   return anno % 400 == 0 || (anno % 4 == 0 && anno % 100 != 0);
 }
