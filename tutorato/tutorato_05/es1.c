@@ -1,30 +1,22 @@
 #include <stdio.h>
 
-void scambia(int *a, int *b)
-{
-    if (*a > *b) {
-        int tmp = *a;
-        *a = *b;
-        *b = tmp;
-    }
+int moltiplica(int a, int b, int *ps) {
+  int i, j;
+  *ps = 0;
+  for (i = 0; i < a; i++)
+    for (j = 0; j < b; j++)
+      (*ps)++;
+
 }
 
-void ordina(int *a, int *b, int *c)
-{
-    scambia(a, b);   /* il minore tra a e b va in a */
-    scambia(b, c);   /* il maggiore dei tre va in c */
-    scambia(a, b);   /* sistema i primi due */
-}
-
-int main(void)
-{
-    int x, y, z;
-
-    printf("Inserisci tre numeri interi: ");
-    scanf("%d %d %d", &x, &y, &z);
-
-    ordina(&x, &y, &z);
-
-    printf("In ordine crescente: %d %d %d\n", x, y, z);
-    return 0;
+int main() {
+  int M, N, s, i, p;
+  scanf("%d%d", &M, &N);
+  s = 0;
+  for (i = 1; i <= N; i++) {
+    moltiplica(M, i, &p);
+    s = s + p;
+  }
+  printf("%.2f", (float)s / N);
+  return 0;
 }
