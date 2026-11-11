@@ -1,39 +1,37 @@
 #include <stdio.h>
 
-void analizza(int n, int *cifre, int *somma, int *inverso)
+void aggiorna(int valore, int *min, int *max, int *somma)
 {
-    *cifre = 0;
-    *somma = 0;
-    *inverso = 0;
-
-    while (n > 0) {
-        int c = n % 10;
-        *somma += c;
-        *inverso = *inverso * 10 + c;
-        (*cifre)++;
-        n /= 10;
-    }
+    if (valore < *min)
+        *min = valore;
+    if (valore > *max)
+        *max = valore;
+    *somma += valore;
 }
 
 int main(void)
 {
-    int n, cifre, somma, inverso;
+    int n, valore, min, max, somma;
 
     do {
-        printf("Inserisci un intero positivo: ");
+        printf("Quanti numeri vuoi inserire? ");
         scanf("%d", &n);
     } while (n <= 0);
 
-    analizza(n, &cifre, &somma, &inverso);
+    printf("Numero 1: ");
+    scanf("%d", &valore);
+    min = valore;
+    max = valore;
+    somma = valore;
 
-    printf("Cifre: %d\n", cifre);
-    printf("Somma delle cifre: %d\n", somma);
-    printf("Numero invertito: %d\n", inverso);
+    for (int i = 2; i <= n; i++) {
+        printf("Numero %d: ", i);
+        scanf("%d", &valore);
+        aggiorna(valore, &min, &max, &somma);
+    }
 
-    if (n == inverso)
-        printf("Il numero e' palindromo.\n");
-    else
-        printf("Il numero non e' palindromo.\n");
-
+    printf("Minimo: %d\n", min);
+    printf("Massimo: %d\n", max);
+    printf("Media: %.2f\n", (double)somma / n);
     return 0;
 }

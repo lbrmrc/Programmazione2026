@@ -1,37 +1,30 @@
 #include <stdio.h>
 
-void aggiorna(int valore, int *min, int *max, int *somma)
+void scambia(int *a, int *b)
 {
-    if (valore < *min)
-        *min = valore;
-    if (valore > *max)
-        *max = valore;
-    *somma += valore;
+    if (*a > *b) {
+        int tmp = *a;
+        *a = *b;
+        *b = tmp;
+    }
+}
+
+void ordina(int *a, int *b, int *c)
+{
+    scambia(a, b);   /* il minore tra a e b va in a */
+    scambia(b, c);   /* il maggiore dei tre va in c */
+    scambia(a, b);   /* sistema i primi due */
 }
 
 int main(void)
 {
-    int n, valore, min, max, somma;
+    int x, y, z;
 
-    do {
-        printf("Quanti numeri vuoi inserire? ");
-        scanf("%d", &n);
-    } while (n <= 0);
+    printf("Inserisci tre numeri interi: ");
+    scanf("%d %d %d", &x, &y, &z);
 
-    printf("Numero 1: ");
-    scanf("%d", &valore);
-    min = valore;
-    max = valore;
-    somma = valore;
+    ordina(&x, &y, &z);
 
-    for (int i = 2; i <= n; i++) {
-        printf("Numero %d: ", i);
-        scanf("%d", &valore);
-        aggiorna(valore, &min, &max, &somma);
-    }
-
-    printf("Minimo: %d\n", min);
-    printf("Massimo: %d\n", max);
-    printf("Media: %.2f\n", (double)somma / n);
+    printf("In ordine crescente: %d %d %d\n", x, y, z);
     return 0;
 }
