@@ -8,8 +8,8 @@ int rnd_int(int min, int max){
 
 int main(){
     int i;
-    srand(100);
-    for (i =0; i <30; i++)
+    srand(1000);
+    for (i =0; i < 30; i++)
         printf("%d\n", rnd_int(0,99));
     printf("-1\n");
     return 0;
