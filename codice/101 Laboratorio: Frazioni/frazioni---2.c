@@ -5,6 +5,15 @@ typedef struct {
   int denominatore;
 } Frazione;
 
+int mcd(int a, int b) { // algoritmo di Euclide
+  while (a != b)
+    if (a < b)
+      b = b - a;
+    else
+      a = a - b;
+  return a;
+}
+
 Frazione frazione(int n, int d) {
   Frazione f;
   f.numeratore = n;
@@ -22,23 +31,20 @@ Frazione leggiFrazione() {
   return frazione(n, d);
 }
 
-void stampaFrazionaria(Frazione f) { 
-    printf("%d/%d", num(f), den(f)); 
+void stampaFrazionaria(Frazione f) {
+  int m = mcd(num(f), den(f));
+  printf("%d/%d", num(f) / m, den(f) / m);
 }
 
-float decimale(Frazione f){
-    return (float)num(f)/den(f);
-}
+float decimale(Frazione f) { return (float)num(f) / den(f); }
 
-void stampaDecimale(Frazione f){
-    printf("%f", decimale(f));
-}
+void stampaDecimale(Frazione f) { printf("%f", decimale(f)); }
 
 int main() {
   Frazione f1, f2;
 
-  f1 = leggiFrazione();
-  f2 = frazione(4, 5);
+  // f1 = leggiFrazione();
+  f2 = frazione(600, 900);
 
   stampaFrazionaria(f2); // stampare 4/5
   printf("\n");
