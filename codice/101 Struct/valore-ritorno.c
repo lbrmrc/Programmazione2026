@@ -1,3 +1,10 @@
+#include <stdio.h>
+
+typedef struct {
+  char nome[30];
+  int eta;
+} Persona;
+
 Persona leggiPersona() {
   Persona p;
   scanf("%s%d", p.nome, &p.eta);
