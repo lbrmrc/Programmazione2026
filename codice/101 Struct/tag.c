@@ -1,4 +1,4 @@
-struct punto {
+struct punto { // tag
   float x;
   float y;
 };
