@@ -55,32 +55,41 @@ int den(Frazione *pf) { return pf->denominatore; } // "getter"
 
 // void stampaDecimale(Frazione f) { printf("%f", decimale(f)); }
 
-// Frazione opposto(Frazione f) { return frazione(-num(f), den(f)); }
+void opposto(Frazione *pfr, Frazione *pf) { frazione(pfr, -num(pf), den(pf)); }
 
-// Frazione inverso(Frazione f) { return frazione(den(f), num(f)); }
-
-void somma(Frazione *pfr, Frazione *pf1, Frazione *pf2) {
-  
-    frazione(pfr, num(pf1) * den(pf2) + num(pf2) * den(pf1), den(pf1) * den(pf2));
+Frazione inverso(Frazione *pfr, Frazione *pf) {
+  frazione(pfr, den(pf), num(pf));
 }
 
-// Frazione differenza(Frazione f1, Frazione f2) { return somma(f1,
-// opposto(f2)); }
+void somma(Frazione *pfr, Frazione *pf1, Frazione *pf2) {
+  frazione(pfr, num(pf1) * den(pf2) + num(pf2) * den(pf1), den(pf1) * den(pf2));
+}
 
-// Frazione prodotto(Frazione f1, Frazione f2) {
-//   return frazione(num(f1) * num(f2), den(f1) * den(f2));
-// }
+void differenza(Frazione *pfr, Frazione *pf1, Frazione *pf2) {
+  Frazione fo;
+  opposto(&fo, pf2);
+  somma(pfr, pf1, &fo);
+}
 
-// Frazione quoziente(Frazione f1, Frazione f2) {
-//   return prodotto(f1, inverso(f2));
-// }
+void prodotto(Frazione *pfr, Frazione *pf1, Frazione *pf2) {
+  frazione(pfr, num(pf1) * num(pf2), den(pf1) * den(pf2));
+}
+
+void quoziente(Frazione *pfr, Frazione *pf1, Frazione *pf2) {
+  Frazione fi;
+  inverso(&fi, pf2);
+  prodotto(pfr, pf1, &fi);
+}
 
 int main() {
-  Frazione f1, f2, f3, f4;
+  Frazione f1, f2, f3, f4, f5, f6;
 
   frazione(&f1, 2, 4);
   frazione(&f2, 4, 5);
   somma(&f3, &f1, &f2);
+  differenza(&f4, &f1, &f2);
+  prodotto(&f5, &f1, &f2);
+  quoziente(&f6, &f1, &f2);
 
   //   stampaFrazionaria(f3); // stampare 4/5
   //   printf("\n");
