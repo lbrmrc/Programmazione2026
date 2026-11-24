@@ -7,6 +7,7 @@ int main(){
 
     c = somma(a, b);
     d = prodotto(a, b);
+    
 
     printf("%d %d\n", c, d);
 }
