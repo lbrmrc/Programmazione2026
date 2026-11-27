@@ -2,24 +2,26 @@
 #include <stdlib.h>
 
 int main() {
+  char nome1[31], nome2[31];
+  int eta1, eta2;
   FILE *pf;
-  char s1[80];
-  char s2[80];
-  int d;
 
-  pf = fopen("doc.txt", "rt");
-  if (pf == NULL) {
-    printf("Errore in apertura file\n");
+  pf = fopen("persona.txt", "rt"); // lettura da testo
+  if (pf == NULL)                  // errore di apertura
+  {
+    printf("Errore apertura file\n");
     exit(1);
   }
 
-  // operazioni sul file
-  fscanf(pf, "%s", s1);
-  fscanf(pf, "%s", s2);
-  fscanf(pf, "%d", &d);
+  // ...
+  fscanf(pf, "%s", nome1);
+  fscanf(pf, "%d", &eta1);
+  fscanf(pf, "%s%d", nome2, &eta2);
 
-  if (fclose(pf) != 0) {
+  if (fclose(pf) != 0) // chiusura file
+  {
     printf("Errore chiusura file\n");
     exit(2);
   }
+  return 0;
 }
